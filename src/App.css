@@ -1,0 +1,141 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f5f7fa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 20px;
+}
+
+.app-container {
+  background-color: white;
+  padding: 30px; 
+  border-radius: 10px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  width: 700px;
+}
+
+.app-title {
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.task-form {
+  display: flex;
+  margin-bottom: 30px;
+}
+
+.task-input {
+  flex: 1;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  font-size: 18px;
+}
+
+.task-input:focus {
+  border-color: #007bff;
+}
+
+.task-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 25px; 
+  margin-left: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background-color 0.3s;
+}
+
+.task-button:hover {
+  background-color: #0056b3;
+}
+
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  background-color: #f9f9f9;
+}
+
+.task-item:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.task-content {
+  flex-grow: 1;
+  margin-right: 15px;
+  font-size: 18px;
+  color: #555;
+}
+
+.update-input {
+  padding: 3px 1px;
+  border: 2px solid #007bff;
+  border-radius: 5px;
+  outline: none;
+  font-size: 17px;
+  flex-grow: 1;
+  margin-right: 10px;
+}
+
+button {
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.edit-button, .delete-button {
+  background-color: transparent;
+  border: none;
+  color: #0056b3;
+  cursor: pointer;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+.edit-button {
+  width: 75px;
+  background-color: #007bff;
+  color: white;
+  margin-right: 5px;
+  padding: 6px 12px;
+}
+
+.delete-button {
+  background-color: #dc3545;
+  color: white;
+  padding: 6px 12px;
+}
+
+.no-task {
+  text-align: center;
+  font-size: 22px;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.complete-button {
+  width: 93px;
+  background-color: #09be45;
+  color: white;
+  margin-right: 5px;
+  padding: 6px 12px;
+  font-size: 16px;
+}
