@@ -5,15 +5,16 @@ import TaskForm from './components/TaskForm';
 import './App.css'
 
 const App = () => {
+  console.log(process.env.REACT_APP_DEMO);
+  
   const [tasks, setTasks] = useState([]);
 
-  //loading states...
-  const [loading, setLoading] = useState(false);  // Loading state
-  const [error, setError] = useState(null);       // Error state
-  const [adding, setAdding] = useState(false);    // Adding task state
-  const [updating, setUpdating] = useState(false);  // Updating task state
-  const [deleting, setDeleting] = useState(false);  // Deleting task state
-  //end
+// Implementing Loading states
+  const [loading, setLoading] = useState(false); 
+  const [error, setError] = useState(null);  
+  const [adding, setAdding] = useState(false);  
+  const [updating, setUpdating] = useState(false); 
+  const [deleting, setDeleting] = useState(false);
 
 
   useEffect(() => {
@@ -24,10 +25,10 @@ const App = () => {
     setLoading(true);
     setError(null);
     try {
-      const response = await axios.get('http://localhost:5000/tasks');
+      const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/tasks`);
       setTasks(response.data);
     } catch (error) {
-      setError('Error fetching tasks');
+      setError('Error while fetching tasks');
       console.error(error);
     }finally{
       setLoading(false);
@@ -35,16 +36,16 @@ const App = () => {
   };
 
   const addTask = async (content) => {
-    setAdding(true); //loading
+    setAdding(true);
     setError(null);
     try {
-      const response = await axios.post('http://localhost:5000/tasks', { content });
+      const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/tasks`, { content });
       setTasks([...tasks, response.data]);
     } catch (error) {
-      setError('Error adding task');
+      setError('Error while adding task');
       console.error(error);
     } finally {
-      setAdding(false); //loading
+      setAdding(false); 
     }
   };
 
@@ -52,7 +53,7 @@ const App = () => {
     setUpdating(true);
     setError(null);
     try {
-      const response = await axios.put(`http://localhost:5000/tasks/${id}`, updatedTask);
+      const response = await axios.put(`${process.env.REACT_APP_BACKEND_URL}/tasks/${id}`, updatedTask);
       setTasks(tasks.map(task => (task.id === id ? response.data : task)));
     } catch (error) {
       setError('Error while updating task');
@@ -66,10 +67,10 @@ const App = () => {
     setDeleting(true);
     setError(null);
     try {
-      await axios.delete(`http://localhost:5000/tasks/${id}`);
+      await axios.delete(`${process.env.REACT_APP_BACKEND_URL}/tasks/${id}`);
       setTasks(tasks.filter(task => task.id !== id));
     } catch (error) {
-      setError('Error deleting task');
+      setError('Error while deleting task');
       console.error(error);
     }finally{
       setDeleting(false);
