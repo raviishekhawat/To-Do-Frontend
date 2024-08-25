@@ -5,7 +5,6 @@ import TaskForm from './components/TaskForm';
 import './App.css'
 
 const App = () => {
-  console.log(process.env.REACT_APP_DEMO);
   
   const [tasks, setTasks] = useState([]);
 

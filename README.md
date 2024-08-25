@@ -38,5 +38,4 @@ This is a frontend React application for a To-Do task management system. It allo
 
 - The application will be accessible at http://localhost:3000.
 
-- Make sure the backend server for tasks is running on http://localhost:5000.
-
+- The backend server for tasks is by default runs on http://localhost:5000. If you change the backend server make sure to modify the Environment Variables on Frontend as well "REACT_APP_BACKEND_URL".
